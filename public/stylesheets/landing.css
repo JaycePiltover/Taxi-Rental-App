@@ -1,0 +1,173 @@
+body{
+	background-image : url("../booking.png");
+	background-repeat: repeat-x;
+	background-color: #f4f4f4;
+	/* background-size: cover; */
+	background-position: bottom;
+	font-family: Lato;
+	color : white;
+}
+
+html{
+	height: 100%;
+}
+#content {
+	text-align : center;
+	padding-top: 25%;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+	             0px 8px 11px rgba(0,0,0,0.1),
+	             0px 16px 20px rgba(0,0,0,0.1);
+}
+
+
+.getstarted {
+	text-decoration: none;
+}
+
+#H{
+	color: rgb(64,61,60);
+}
+
+#new_nac{
+	background: #000000;
+}
+
+h1{
+	font-weight: 700;
+	font-size: 5em;
+}
+
+hr{
+	width: 400px;
+}
+
+#carsl {
+	padding-bottom:100px;
+	padding-left:50px;
+	padding-right:50px;
+	padding-top: 20px;
+	
+}
+#abt_jumbo{
+	position:bottom;
+	margin-bottom:0px;
+	margin-top: 10px;
+}
+
+.btn {
+	border-radius: 100px;
+}
+
+#alrt {
+	padding-top: 1em;
+}
+
+#indt {
+	margin-left: 38px;
+}
+#intm {
+	padding-left: 0px;
+	margin:0;
+}
+#intm1 {
+	padding-left: 0px;
+	margin:0;
+}
+
+#dash_img {
+	float: right;
+	width: 18%;
+	height: 30%;
+}
+
+#contactjumbo {
+	margin-top: 2em;
+	background: #9ccad2;
+}
+
+#bookjumbo {
+	margin-top: 2em;	
+}
+
+#bookjumbo1 {	
+	background: #9ccad2;
+}
+
+#dash_jumbo3 {
+	margin-top: 2em;
+}
+
+#dash_jumbo {
+ 	margin-top: 2em;
+}
+
+#dash_jumbo1 {
+	background: #9ccad2;
+}
+
+#list-tab {
+	padding-bottom: 2em;
+}
+
+.my-4{
+	color: #1a1919;
+	width: 370px;
+}
+
+#con_div {
+	background: #f2f2f0;
+	border: 1px solid #9ccad2;
+	box-sizing: border-box;
+	padding: 1.5em;
+	border-radius: 10px;
+	margin-bottom:1em;
+}
+
+#log_div {
+	background: #f2f2f0;
+	border: 1px solid #9ccad2;
+	box-sizing: border-box;
+	padding: 1.5em;
+	border-radius: 10px;
+	margin-top:2em;
+	
+}
+#log_but {
+	background-color: #fdbe41;
+}
+
+#cancel_but {
+	background-color: #962323;
+}
+.auth_head {
+	text-align: center;
+	color: #454e5e;
+	font-family: arial;
+	margin-top: 1em;
+	font-size: 10px;
+} 
+
+.table-responsive {
+	background-color: #f4f4f4;
+	border-radius:20px;
+	margin-bottom:20px;
+	/* border: 1px solid black; */
+}
+.thead-dark {
+	text-align: center;
+}
+.tbody {
+	text-align: center;
+	/* border: 3px solid black; */
+}
+
+.thd {
+	border: 0px;
+}
+/* #tr1 {
+	border-bottom-left-radius: 10px;
+	/* border-bottom: 0px; */
+}
+/* #tr2{
+	border-top-right-radius: 10px;
+} */ 

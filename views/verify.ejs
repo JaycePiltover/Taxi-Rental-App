@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+
+<div class="auth_head">
+	<h1>
+		Verify Email Address
+	</h1>
+</div>
+
+
+<div class="container col-md-3 col-11" id="log_div">
+		<form action="/verify" method="Post">
+			<div class="form-group">
+				<label class="text-dark">Enter Token <font color="red">*</font> :</label>
+				<input type="text" name="token" class="form-control" placeholder="Enter Token">
+			</div>
+			<div>
+				<button type="submit" class="btn" id="log_but">Verify</button>
+			</div>
+		</form>
+</div>
+
+<%- include("partials/footer") %>

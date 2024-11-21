@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+<div class="auth_head">
+	<h1>
+		Reset Password
+	</h1>
+</div>
+
+
+<div class="container col-md-3 col-11" id="log_div">
+		<form action="/reset/<%= id %>/?_method=PUT" method="Post">
+			<div class="form-group">
+				<label class="text-dark">Enter New Password <font color="red">*</font> :</label>
+				<input type="password" name="pass" class="form-control" placeholder="Enter New Password" autofocus>
+			</div>
+			<div class="form-group">
+				<label class="text-dark">Confirm New Password <font color="red">*</font> :</label>
+				<input type="password" name="confpass" class="form-control" placeholder="Confirm New Password">
+			</div>
+			<div>
+				<button type="submit" class="btn btn-secondary bg-dark">Confirm</button>
+			</div>
+		</form>
+</div>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,41 @@
+<%- include("../partials/header") %>
+
+
+<div class="container" id="dash_jumbo">
+	<div class="row">
+		<% if(currentUser.role == "user"){ %>
+		<div class="col-md-2 col-sm-4">
+			<div class="list-group" id="list-tab" role="tablist">
+				<a class="list-group-item list-group-item-action bg-dark text-white" id="list-list" href="/dashboard">Dashboard</a>
+				<a class="list-group-item list-group-item-action" id="list-list" href="/dashboard/profile">My Profile</a>
+				<a class="list-group-item list-group-item-action" id="list-list" href="/dashboard/history">My Bookings</a>
+			</div>
+		</div>
+		<% } %>
+		<% if(currentUser.role == "admin"){ %>
+		<div class="col-md-2 col-sm-4">
+			<div class="list-group" id="list-tab" role="tablist">
+				<a class="list-group-item list-group-item-action bg-dark text-white" id="list-list" data-toggle="list" href="/dashboard">Dashboard</a>
+				<a class="list-group-item list-group-item-action" id="list-list" href="/dashboard/profile">My Profile</a>
+				<a class="list-group-item list-group-item-action" id="list-list" href="/dashboard/book_history">Show Bookings</a>
+			</div>
+		</div>
+		<% } %>
+		<div class="col-md-10 col-sm-8">
+			<div class="jumbotron text-dark" id="dash_jumbo1">
+				<h1 class="display-4">Welcome, <%= currentUser.name %> </h1>
+				<hr class="my-4">
+				<p>Book a cab from your Home/Office</p>
+				<% if(currentUser.role == "user"){ %>
+				<a class="btn btn-dark btn-lg" href="/booking" role="button">Book a Cab</a>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="jumbotron jumbotron-fluid fixed-bottom col-md-12 col-12" id="dash_div"></div> -->
+<!-- <img class="img-fluid" src="booking.png"> -->
+
+
+<%- include("../partials/footer") %>

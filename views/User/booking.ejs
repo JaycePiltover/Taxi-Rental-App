@@ -1,0 +1,79 @@
+<%- include("../partials/header") %>
+
+<div class="container" id="bookjumbo">
+	<div class="row">
+		<div class="col-md-2 col-sm-4">
+			<div class="list-group" id="list-tab" role="tablist">
+				<a class="list-group-item list-group-item-action bg-dark text-white" id="list-list" href="/dashboard">Dashboard</a>
+				<a class="list-group-item list-group-item-action" id="list-list" href="/dashboard/profile">My Profile</a>
+				<a class="list-group-item list-group-item-action" id="list-list" href="/dashboard/history">My Bookings</a>
+			</div>
+		</div>
+		<div class="jumbotron text-dark col-md-10 col-sm-8" id="bookjumbo1">
+			<div class="container">
+				<h1 class="display-4">Book a Cab!</h1>
+				<hr class="my-4">
+				<p class="lead">Tip : We recommend Booking a Cab atleast 24 hours before your trip.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container col-md-3 col-11" id="con_div">
+		<form action="/booking" method="post">
+			<div class="form-group">
+				<label class="text-dark">Pickup Address <font color="red">*</font> : </label>
+				<textarea type="text" class="form-control" name="pickup_from" placeholder="Enter Pickup Location" rows="3" autofocus></textarea>
+			</div>
+			<div class="form-group">
+				<label class="text-dark">Drop Address <font color="red">*</font> : </label>
+				<textarea type="text" class="form-control" name="drop_to" placeholder="Enter Drop Location" rows="3"></textarea>
+			</div>
+			<div class="form-group">
+				<label class="text-dark">PickUp Date <font color="red">*</font> : </label>
+				<input type="date" min="07-31-2020" name="pickup_date" id="indt">
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<label class="text-dark col-md-4 col-4">PickUp Time <font color="red">*</font> : </label>
+					<div class="input-group col-md-3 col-3" id="intm">
+						<select class="custom-select" name="inpdate">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+							<option>10</option>
+							<option>11</option>
+							<option>12</option>
+						</select>
+					</div>
+					<div class="input-group col-md-3 col-3" id="intm1">
+						<select class="custom-select" name="inptime">
+							<option>AM</option>
+							<option>PM</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="text-dark">Select Cab Category <font color="red">*</font> : </label>
+				<div class="input-group">
+					<select class="custom-select" name="vehicle">
+						<option selected>Select Cab Category</option>
+						<option>Sedan</option>
+						<option>SUV</option>
+						<option>Hatchback</option>
+					</select>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-secondary bg-dark">Book</button>
+		</form>
+</div>
+
+<%- include("../partials/footer") %>

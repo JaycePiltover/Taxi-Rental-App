@@ -1,0 +1,169 @@
+<%- include("../partials/header") %>
+
+<div class="container" id="dash_jumbo3">
+	<div class="row">
+		<% if(currentUser.role == "user"){ %>
+		<div class="col-md-2 col-sm-4">
+			<div class="list-group" id="list-tab" role="tablist">
+				<a class="list-group-item list-group-item-action bg-dark text-white" id="list-list" href="/dashboard">Dashboard</a>
+				<a class="list-group-item list-group-item-action" id="list-list" href="/dashboard/profile">My Profile</a>
+				<a class="list-group-item list-group-item-action" id="list-list" href="/dashboard/history">My Bookings</a>
+			</div>
+		</div>
+		<% } %>
+		<% if(currentUser.role == "admin"){ %>
+		<div class="col-md-2 col-sm-4">
+			<div class="list-group" id="list-tab" role="tablist">
+				<a class="list-group-item list-group-item-action bg-dark text-white" id="list-list" data-toggle="list" href="/dashboard">Dashboard</a>
+				<a class="list-group-item list-group-item-action" id="list-list" href="/dashboard/profile">My Profile</a>
+				<a class="list-group-item list-group-item-action" id="list-list" href="/dashboard/book_history">Show Bookings</a>
+			</div>
+		</div>
+		<% } %>
+		<div class="jumbotron text-dark col-md-10 col-sm-8" id="dash_jumbo1">
+			<% if(currentUser.role == "user"){ %>
+			<h1 class="display-4">Booking History </h1>
+			<% } %>
+			<% if(currentUser.role == "admin"){ %>
+			<h1 class="display-4">Bookings</h1>
+			<% } %>
+			<hr class="my-4">
+			<% if(currentUser.role == "user"){ %>
+			<p>Confirming your Booking or Updating Status of your Booking is done within 24-48 hours. We Thank You for your patience.</p>
+			<% } %>
+			<a class="btn btn-dark btn-lg" href="/dashboard" role="button">Go to Dashboard</a>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="container">
+
+<% if(currentUser.role == "user"){ %>
+	<div class="container">
+		<form action="/dashboard/search" method="post">
+			<div class="form-row">
+				<div class="col-md-4 mb-3">
+    				<input type="text" class="form-control" placeholder="Booking Id" name="book_id">
+    			</div>
+				<div class="col-md-4 mb-3">
+    				<select class="custom-select" name="status">
+						<option>Not Confirmed</option>
+						<option>Confirmed</option>
+						<option>Cancelled By User</option>
+						<option>Cancelled</option>
+					</select>
+    			</div>
+				<div class="col-md-4 mb-3">
+					<button class="btn btn-md btn-secondary bg-dark" type="submit">Search</button>
+				</div>
+			</div>
+			<a href="/dashboard/history">Show All</a>
+		</form>
+	</div>
+	
+	<div class="table-responsive">
+	<table class="table">
+        <thead class="thead-dark">
+          <tr class="thd">
+			<th class="thd" id="tr1">Booking Id</th>
+            <th class="thd">Pickup Address</th>
+            <th class="thd">Drop Address</th>
+			<th class="thd">Pickup Date & Time</th>
+			<th class="thd">Booking Status</th>
+			<th class="thd" id="tr2">View/Cancel Booking</th>
+          </tr>
+        </thead>
+        <tbody class="tdata">
+          <%if (records.length >0){ %>
+          <% records.forEach(function(row){ %>
+          <tr>
+            <td class="tbody"><%= row.B_id %></td>
+            <td class="tbody"><%= row.pickup %></td>
+			<td class="tbody"><%= row.drop %></td>
+			<td class="tbody"><%= new Date(row.Assgn_date).getDate()+"-"+(new Date(row.Assgn_date).getMonth()+1)+"-"+new Date(row.Assgn_date).getFullYear() %>
+				|| <%= row.Assgn_time %>
+			</td>
+			<td class="tbody"><%= row.status %></td>
+			<td class="tbody"><% if(row.status=="Not Confirmed"){ %>
+				<a class="btn btn-danger btn-xs" href="/dashboard/cancel/<%= row.B_id %>"><i class="fa fa-minus-circle"></i></a>
+				<% } %>
+			<a class="btn btn-primary btn-xs" href="/dashboard/details/<%= row.B_id %>"><i class="fa fa-info-circle"></i></a>
+			</td>
+          </tr>
+          <% })}else{ %>
+            <tr>
+                <td class="tbody" colspan="7">No Booking Found</td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+	</div>
+<% } %>
+
+<% if(currentUser.role == "admin"){ %>
+	<div class="container">
+		<form action="/dashboard/search" method="post">
+			<div class="form-row">
+				<div class="col-md-4 mb-3">
+    				<input type="text" class="form-control" placeholder="Booking Id" name="book_id">
+    			</div>
+				<div class="col-md-4 mb-3">
+    				<select class="custom-select" name="status">
+						<option selected>Not Confirmed</option>
+						<option>Confirmed</option>
+						<option>Cancelled By User</option>
+						<option>Cancelled</option>
+					</select>
+    			</div>
+				<div class="col-md-4 mb-3">
+					<button class="btn btn-md btn-secondary bg-dark" type="submit">Search</button>
+				</div>
+			</div>
+			<a href="/dashboard/history">Show All</a>
+		</form>
+	</div>
+	
+	<div class="table-responsive">
+	<table class="table">
+        <thead class="thead-dark">
+          <tr>
+			<th class="tbody" id="tr1">Booking Id</th>
+            <th class="tbody">Name</th>
+            <th class="tbody">Pickup Address</th>
+            <th class="tbody">Drop Address</th>
+			<th class="tbody">Pickup Date & Time</th>
+			<th class="tbody">Booking Status</th>
+			<th class="tbody" id="tr2">Update Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%if (records.length >0){ %>
+          <% records.forEach(function(row){ %>
+          <tr>
+            <td class="tbody"><%= row.B_id %></td>
+            <td class="tbody"><%= row.name %></td>
+            <td class="tbody"><%= row.pickup %></td>
+			<td class="tbody"><%= row.drop %></td>
+			<td class="tbody"><%= new Date(row.Assgn_date).getDate()+"-"+(new Date(row.Assgn_date).getMonth()+1)+"-"+new Date(row.Assgn_date).getFullYear() %>
+				|| <%= row.Assgn_time %>  
+			</td>
+			<td class="tbody"><%= row.status %></td>
+			<td class="tbody"><% if(row.status!="Cancelled" && row.status!="Cancelled By User"){ %>
+				<a class="btn btn-primary btn-xs" href="/dashboard/edit/<%= row.B_id %>"><i class="fa fa-edit"></i></a></td>
+			  <% } %>
+          </tr>
+          <% })}else{ %>
+            <tr>
+                <td class="tbody" colspan="10">No Booking Found</td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+	</div>
+<% } %>
+
+</div>
+
+<%- include("../partials/footer") %>

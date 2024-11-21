@@ -1,0 +1,56 @@
+<%- include("../partials/header") %>
+
+<div class="auth_head">
+	<h1>
+		Booking Details
+	</h1>
+</div>
+
+<div class="container col-md-4 col-11" id="con_div">
+			<form>
+				<div class="form-group">
+					<label class="text-dark">Name</label>
+					<input type="text" name="name" class="form-control" value="<%= record.name %>" readonly>
+				</div>
+				<div class="form-group">
+					<label class="text-dark">Email Address</label>
+					<input type="email" name="email" class="form-control" value="<%= record.email %>" readonly>
+				</div>
+				<div class="form-group">
+					<label class="text-dark">Mobile Number</label>
+					<input type="text" name="mobile" class="form-control" value="<%= record.mobile %>" readonly>
+				</div>
+				<div class="form-group">
+					<label class="text-dark">Booking Id</label>
+					<input type="text" name="mobile" class="form-control" value="<%= record.B_id %>" readonly>
+				</div>
+				<div class="form-group">
+					<label class="text-dark">Booking Date</label>
+					<input type="text" name="mobile" class="form-control" value="<%= new Date(record.Booking_date).getDate()+"-"+(new Date(record.Booking_date).getMonth()+1)+"-"+
+						new Date(record.Booking_date).getFullYear() %>" readonly>
+				</div>
+				<div class="form-group">
+					<label class="text-dark">PickUp Address</label>
+					<input type="text" name="mobile" class="form-control" value="<%= record.pickup %>" readonly>
+				</div>
+				<div class="form-group">
+					<label class="text-dark">Drop Address</label>
+					<input type="text" name="mobile" class="form-control" value="<%= record.drop %>" readonly>
+				</div>
+				<div class="form-group">
+					<label class="text-dark">PickUp Date & Time</label>
+					<input type="text" name="mobile" class="form-control" value="<%= new Date(record.Assgn_date).getDate()+"-"+(new Date(record.Assgn_date).getMonth()+1)+"-"+
+						new Date(record.Assgn_date).getFullYear() %> || <%= record.Assgn_time %> " readonly>
+				</div>
+				<div class="form-group">
+					<label class="text-dark">Cab Category</label>
+					<input type="text" name="mobile" class="form-control" value="<%= record.vechicle_type %>" readonly>
+				</div>
+				<div class="form-group">
+					<label class="text-dark">Status</label>
+					<input type="text" name="mobile" class="form-control" value="<%= record.status %>" readonly>
+				</div>
+			</form>
+		</div>
+
+<%- include("../partials/footer") %>

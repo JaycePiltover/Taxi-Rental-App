@@ -1,0 +1,52 @@
+<%- include("partials/header") %>
+
+<div class="container">
+	<div class="jumbotron text-dark" id="contactjumbo">
+  		<div class="container">
+			<h1 class="display-4">Contact Us</h1>
+			<hr class="my-4">
+			<p class="lead">Have a Query about something? Send us the details of your query by filling the below given form.</p>
+		</div>
+	</div>
+</div>
+<% if(!currentUser){ %>
+	<div class="container col-md-3 col-11" id="con_div">
+		<form action="/contactUs" method="Post">
+			<div class="form-group">
+				<label class="text-dark">Name <font color="red">*</font> :</label>
+				<input type="text" name="name" class="form-control" placeholder="Your Name">
+			</div>
+			<div class="form-group">
+				<label class="text-dark">Email Address <font color="red">*</font> :</label>
+				<input type="email" name="email" class="form-control" placeholder="example@example.com">
+			</div>
+			<div class="form-group">
+				<label class="text-dark">Query <font color="red">*</font> :</label>
+				<textarea class="form-control" name="query" rows="3" placeholder="Enter your Query here"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+<% } %>
+
+<% if(currentUser){ %>
+	<div class="container col-md-3 col-11" id="con_div">
+		<form action="/contactUs" method="Post">
+			<div class="form-group">
+				<label class="text-dark">Name <font color="red">*</font> :</label>
+				<input type="text" name="name" class="form-control" value="<%=currentUser.name%>" readonly>
+			</div>
+			<div class="form-group">
+				<label class="text-dark">Email Address <font color="red">*</font> :</label>
+				<input type="email" name="email" class="form-control" value="<%=currentUser.email%>" readonly>
+			</div>
+			<div class="form-group">
+				<label class="text-dark">Query <font color="red">*</font> :</label>
+				<textarea class="form-control" name="query" rows="3" placeholder="Enter your Query here"></textarea>
+			</div>
+			<button type="submit" class="btn btn-secondary bg-dark">Submit</button>
+		</form>
+	</div>
+<% } %>
+
+<%- include("partials/footer") %>

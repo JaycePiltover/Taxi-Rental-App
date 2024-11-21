@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+
+<div class="auth_head">
+	<h1>
+		Enter Email Address
+	</h1>
+</div>
+
+
+<div class="container col-md-3 col-11" id="log_div">
+		<form action="/forgot" method="Post">
+			<div class="form-group">
+				<label class="text-dark">Email Address <font color="red">*</font> :</label>
+				<input type="email" name="email" class="form-control" placeholder="Enter your Email Address" autofocus>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-secondary bg-dark">Continue</button>
+			</div>
+		</form>
+</div>
+
+<%- include("partials/footer") %>
